@@ -1,0 +1,13 @@
+# Go-Trust pipeline for LoTE-based trust evaluation
+# Loads the signed LoTE from the local trust registry and makes it available via the API
+
+- set-fetch-options:
+    - max-depth:3
+    - user-agent:Go-Trust/1.0
+    - timeout:30s
+
+- load:
+    - https://trust-dev-1.iam.sunet.se/lote/lote-SE.json.jws
+
+- log:
+    - "Loaded LoTE with %d trusted entities"

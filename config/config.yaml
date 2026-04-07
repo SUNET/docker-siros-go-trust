@@ -1,0 +1,36 @@
+service:
+  name: "siros-go-trust-service"
+  version: "1.0.0"
+  description: "Go-Trust LoTE Service (sirosfoundation/go-trust, ETSI TS 119 602)"
+
+server:
+  host: "0.0.0.0"
+  port: 6002
+  frequency: "5m"
+
+  tls:
+    enabled: true
+    cert_file: /tls_cert.pem
+    key_file: /tls_key.pem
+
+logging:
+  level: "info"
+  format: "text"
+  output: "stdout"
+
+security:
+  rate_limit_rps: 100
+  enable_cors: true
+  allowed_origins:
+    - "*"
+
+registries:
+  lote:
+    enabled: true
+    name: "My LoTE Registry"
+    description: "LoTE-based trust evaluation"
+    sources:
+      - "https://trust-dev-1.iam.sunet.se/lote/lote-SE.json.jws"
+    verify_jws: true
+    fetch_timeout: "30s"
+    refresh_interval: "1h"

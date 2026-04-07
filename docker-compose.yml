@@ -1,0 +1,9 @@
+services:
+  go-trust:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    restart: unless-stopped
+    volumes:
+      - /etc/dehydrated/private/${DOMAIN}.pem:/tls_cert.pem:ro
+      - /etc/dehydrated/private/${DOMAIN}.key:/tls_key.pem:ro
