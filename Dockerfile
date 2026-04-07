@@ -1,6 +1,6 @@
 # Multi-stage Docker build: go-trust binary for LoTE-based trust evaluation
 # Builds go-trust from sirosfoundation/go-trust
-FROM golang:1.25-alpine AS builder
+FROM golang:1.26-alpine AS builder
 
 RUN apk add --no-cache \
     git \
