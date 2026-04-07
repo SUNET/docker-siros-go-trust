@@ -29,8 +29,10 @@ registries:
     enabled: true
     name: "My LoTE Registry"
     description: "LoTE-based trust evaluation"
+    #here should be signing certificate location
     sources:
-      - "https://trust-dev-1.iam.sunet.se/lote/lote-SE.json.jws"
-    verify_jws: true
+      - "https://trust-dev-1.iam.sunet.se/lote/lote-SE.json"
+    #here should be verification true and location to the public key for verification
+    verify_jws: false
     fetch_timeout: "30s"
     refresh_interval: "1h"
