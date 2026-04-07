@@ -16,7 +16,7 @@ RUN git clone https://github.com/sirosfoundation/go-trust.git .
 RUN go mod download && \
     CGO_ENABLED=1 GOOS=linux go build -a -trimpath \
     -ldflags="-X main.Version=${VERSION:-dev} -w -s" \
-    -o gt ./cmd
+    -o gt ./cmd/gt
 
 # Final runtime stage
 FROM alpine:latest
